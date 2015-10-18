@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html lang="en" 
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://xmlns.jcp.org/jsf/html"
+		xmlns:a="http://xmlns.jcp.org.jsf/passthrough"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:a4j="http://richfaces.org/a4j"
+      	xmlns:rich="http://richfaces.org/rich">
+      	
+<!-- <ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:a4j="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich"> -->
+		
+		<h:head><title>Student Registration Form</title></h:head><h:body>
+		<h:form>
+		First Name : <h:inputText  id ="firstName" value="#{studentTwo.firstName}"/> 
+		
+		Last Name : <h:inputText  id ="lastName" value="#{studentTwo.lastName}"/> 
+		
+		Country:
+		<h:selectOneMenu value="#{studentTwo.country}" valueChangeListner="#{studentTwo.processValueChange}" >
+		<f:selectItems value="#{studentTwo.countries}"/>
+		</h:selectOneMenu>
+		
+		Favorourite Programming Languages are :
+		
+		<h:selectOneRadio value="#{studentTwo.language}">
+		<f:selectItem itemValue="Java" itemLabel="java"/>
+		<f:selectItem itemValue="Hadoop" itemLabel="Hadoop"/>
+		<f:selectItem itemValue="C" itemLabel="C"/>
+		</h:selectOneRadio>
+		
+		<!-- <h:selectOneMenu value="#{studentTwo.country}">
+		<f:selectItem itemValue="United States" itemLabel="USA"/>
+		<f:selectItem itemValue="Canada" itemLabel="Canada"/>
+		<f:selectItem itemValue="Australia" itemLabel="Australia"/>
+		</h:selectOneMenu> -->
+		
+		<h:dataTable value="#{studentTwo.names}" var="name"
+   styleClass="employeeTable"
+   headerClass="employeeTableHeader"
+   rowClasses="employeeTableOddRow,employeeTableEvenRow" border="1" align="center">
+   <f:facet name="caption"><h:outputText value="United States Capitals" /></f:facet>
+   <f:facet name ="header">                <h:outputText value="Header Check" />
+   </f:facet>
+   <f:facet name ="footer">Employee Table End</f:facet>
+   <h:column>
+       				
+      <f:facet name="header">First Name</f:facet>    				
+      <h:outputText value="#{name.firstName}" />
+   
+   </h:column>
+   <h:column colspan="4">
+      <f:facet name="header">Last Name</f:facet>
+      
+      <h:outputText value="#{name.lastName}" />
+   </h:column>
+   <h:column>
+      <f:facet name="header">Country</f:facet>
+      #{name.country}
+   </h:column>
+   
+</h:dataTable>
+
+
+<!-- <rich:dataTable width="700" var="name" value="#{studentTwo.names}" border="1"> -->
+                
+                    <!-- <f:facet name="header">
+                    Viresh
+                        <rich:columnGroup>
+                            <rich:column rowspan="2">
+                                <rich:spacer />
+                            </rich:column>
+                            <rich:column colspan="3">
+                                <h:outputText value="Expenses" />
+                            </rich:column>
+                            <rich:column rowspan="2">
+                                <h:outputText value="subtotals" />
+                            </rich:column>
+                            <rich:column breakBefore="true">
+                                <h:outputText value="Meals" />
+                            </rich:column>
+                            <rich:column>
+                                <h:outputText value="Hotels" />
+                            </rich:column>
+                            <rich:column>
+                                <h:outputText value="Transport" />
+                            </rich:column>
+                        </rich:columnGroup>
+                    </f:facet> -->
+    
+    <!-- <f:facet name ="header">Employee Table</f:facet>
+   <f:facet name ="footer">Employee Table End</f:facet>
+              </rich:dataTable> -->
+                
+		<h:commandButton value ="Submit" action="studentTwoResponse"/>
+		</h:form>
+		
+		
+
+</h:body>
+<!-- </ui:composition> -->
+</html>		
+			
+		
